@@ -1,0 +1,319 @@
+/* ============================================
+   Smooth Animations & Keyframes (2026 Best Practices)
+   ============================================ */
+
+/* Custom Easing Functions - Inspired by Cal AI */
+:root {
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Fade In Up Animation - Smoother */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Animation - Simple */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scale In Animation - Subtle */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating Animation - Very Subtle */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Gentle Glow */
+@keyframes gentleGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(0, 204, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.15);
+  }
+}
+
+/* ============================================
+   Applied Animations
+   ============================================ */
+
+/* Hero Image - No animation */
+.hero__image {
+  /* Float animation removed */
+}
+
+/* Scroll-triggered Animations - Slower, Smoother Entrance */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s var(--ease-out-expo),
+              transform 1.2s var(--ease-out-expo);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Animation Delays - More Gradual */
+.feature-card:nth-child(1).visible {
+  transition-delay: 0.1s;
+}
+
+.feature-card:nth-child(2).visible {
+  transition-delay: 0.2s;
+}
+
+.feature-card:nth-child(3).visible {
+  transition-delay: 0.3s;
+}
+
+.feature-card:nth-child(4).visible {
+  transition-delay: 0.4s;
+}
+
+.step:nth-child(1).visible {
+  transition-delay: 0.15s;
+}
+
+.step:nth-child(2).visible {
+  transition-delay: 0.25s;
+}
+
+.step:nth-child(3).visible {
+  transition-delay: 0.35s;
+}
+
+.showcase__item:nth-child(1).visible {
+  transition-delay: 0.08s;
+}
+
+.showcase__item:nth-child(2).visible {
+  transition-delay: 0.16s;
+}
+
+.showcase__item:nth-child(3).visible {
+  transition-delay: 0.24s;
+}
+
+/* ============================================
+   Smooth Hover Transitions
+   ============================================ */
+
+/* Card Hover Effect - Buttery Smooth */
+.feature-card {
+  transition: transform 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-out-expo),
+              border-color 0.4s var(--ease-out-expo),
+              background 0.4s var(--ease-out-expo);
+  will-change: transform;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* Showcase Item Hover - Smooth */
+.showcase__item {
+  transition: transform 0.5s var(--ease-out-expo),
+              box-shadow 0.5s var(--ease-out-expo),
+              border-color 0.5s var(--ease-out-expo);
+  will-change: transform;
+}
+
+.showcase__item:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Button Hover - Snappy but Smooth */
+.btn {
+  transition: transform 0.25s var(--ease-out-expo),
+              box-shadow 0.25s var(--ease-out-expo),
+              background 0.25s var(--ease-out-expo);
+  will-change: transform;
+}
+
+.btn--primary:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Link Hover Effect - Fast */
+a {
+  transition: color 0.2s var(--ease-smooth),
+              opacity 0.2s var(--ease-smooth);
+}
+
+/* Image Hover Scale - Smooth and Gradual */
+.showcase__item img,
+.step__image img {
+  transition: transform 0.6s var(--ease-out-expo);
+  will-change: transform;
+}
+
+.showcase__item:hover img {
+  transform: scale(1.03);
+}
+
+.step__image {
+  transition: transform 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-out-expo),
+              border-color 0.4s var(--ease-out-expo);
+}
+
+.step__image:hover {
+  transform: translateY(-2px);
+}
+
+/* Navigation Scroll - Smooth */
+.nav {
+  transition: background-color 0.4s var(--ease-smooth),
+              backdrop-filter 0.4s var(--ease-smooth),
+              border-bottom 0.4s var(--ease-smooth);
+}
+
+/* ============================================
+   Micro-interactions
+   ============================================ */
+
+/* Icon Subtle Animation on Hover */
+.feature-card__icon {
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.feature-card:hover .feature-card__icon {
+  transform: scale(1.05);
+}
+
+/* CTA Glow on Hover - Very Subtle */
+.hero__cta .btn--primary {
+  transition: transform 0.3s var(--ease-out-expo),
+              box-shadow 0.3s var(--ease-out-expo);
+}
+
+.hero__cta .btn--primary:hover {
+  animation: gentleGlow 2s var(--ease-smooth) infinite;
+}
+
+/* ============================================
+   Performance Optimizations
+   ============================================ */
+
+/* GPU Acceleration for Smooth Animations */
+.hero__image,
+.feature-card,
+.showcase__item,
+.btn {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero__image {
+    animation: none;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .feature-card:hover,
+  .showcase__item:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Loading State
+   ============================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2.5s var(--ease-smooth) infinite;
+}
+
+/* ============================================
+   Focus States - Smooth
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  transition: outline-offset 0.2s var(--ease-smooth);
+}
+
+*:focus-visible:active {
+  outline-offset: 1px;
+}

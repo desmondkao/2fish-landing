@@ -1,0 +1,7 @@
+# robots.txt for 2fish Landing Page
+
+User-agent: *
+Allow: /
+
+# Sitemap (update with actual Squarespace domain)
+Sitemap: https://yourdomain.squarespace.com/sitemap.xml
